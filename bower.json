@@ -9,8 +9,5 @@
     "angular-route": "latest",
     "angular-resource": "latest",
     "fontawesome": "~4.2.0"
-  },
-  "resolutions": {
-    "angular": ">=1.2.0"
   }
 }
