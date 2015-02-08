@@ -1,0 +1,43 @@
+<!-- HEADER -->
+<div class="navbar-wrapper">
+  <div class="container navvy">
+
+    <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button> -->
+          <a class="navbar-brand" href="/">mobseen</a>
+          <ul class="nav nav-pills pull-right" ng-init="dateState='live'">
+            <li><a href ng-click="dateState = 'live'" ng-class="{'activeDate': dateState=='live'}">Live!</a></li>
+            <!-- <li><a href ng-click="dateState = 'past'" ng-class="{'activeDate': dateState=='past'}">Past Events</a></li> -->
+            <li><a href ng-click="dateState = 'future'" ng-class="{'activeDate': dateState=='future'}">Future Events</a></li>
+          </ul>
+        </div>
+        <!-- <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+          </ul> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row inner">
+    <div class="col-xs-12 col-sm-4 col-md-4 project" ng-repeat="event in events | orderBy:'end'" ng-show="dateState==event.dateState">
+        <a ng-href="http://mobseen.herokuapp.com/{{event.object_id}}">
+            <div class="img-overlay">
+                <img ng-src="{{event.cover.img}}" alt="" class="img-responsive insta" id="image"/>
+                <div class="project-overlay">
+                    <h3>{{event.event}}</h3>
+                    <h4>{{event.team_1}}</h4>
+                    <h4>{{event.team_2}}</h4>
+                </div>
+            </div>
+        </a>
+        <p class="credit">image by: <a href="http://instagram.com/{{event.cover.username}}" target="_blank" class="credit">@{{event.cover.username}}</a></p>
+    </div>
+</div>

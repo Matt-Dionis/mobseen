@@ -1,0 +1,41 @@
+<!-- HEADER -->
+<div class="navbar-wrapper">
+  <div class="container navvy">
+
+    <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button> -->
+          <a class="navbar-brand" href="/">mobseen</a>
+        </div>
+        <!-- <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+          </ul> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<ui-gmap-google-map center="map.center" zoom="map.zoom" draggable=true options="options">
+  <!--<ui-gmap-marker idKey="testId" coords="coords"></ui-gmap-marker>-->
+</ui-gmap-google-map>
+
+<div class="row inner" infinite-scroll="loadImages()" infinite-scroll-distance="1" infinite-scroll-disabled="busy">
+
+	<h2 class="headline">{{event}}</h2>
+	<h3 class="headline">{{city}}, {{state}}</h3>
+  
+	<div class="col-md-3 col-sm-4 col-xs-12 img-container" ng-repeat="photo in photos">
+
+		<a ng-href="{{photo.link}}" target="_blank" title="{{photo.text}}"><img ng-src="{{photo.img}}" onerror="imgError(this);" alt="" class="img-responsive insta" id="image"></a>
+
+		<div class="prof-circ" title="{{photo.username}}"><a ng-href="http://instagram.com/{{photo.username}}" target="_blank"><img ng-src="{{photo.profile}}" onerror="anonImg(this);" alt="" class="circular"></a></div>
+
+	</div>
+
+</div>
