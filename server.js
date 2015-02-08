@@ -6,6 +6,7 @@ var io             = require('socket.io').listen(app.listen(port));
 var request        = require('request');
 var async          = require('async');
 var mongoose       = require('mongoose');
+var Twit           = require('twit')
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 var db             = require('./config/db');
@@ -21,6 +22,13 @@ app.use(bodyParser.urlencoded({ extended: true })); // parse application/x-www-f
 
 app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method- Override  header in the request. simulate DELETE/PUT
 app.use(express.static(__dirname + '/public')); // set the static files location  /public/img  will be /img for users
+
+var T = new Twit({
+    consumer_key:         'iUu4b7dHMBb8VUyhrHO9G8L27'
+  , consumer_secret:      'NlE5RyRB9TXlUrjK6VCAhOLg0A4qYqaFQ7yczK5gYUCf5yRbKe'
+  , access_token:         '327390939-7HOoDu6IkcYDdbLI1PLNfEhJYFJurIkrjj7HfMIZ'
+  , access_token_secret:  'Ecb8xubLkzCkOSD6OWm4G8R19J4Vlh6mO7tXXzh68GehA'
+})
 
 /* var baseUrl = 'https://api.instagram.com/v1/media/search?lat=';
 var clientId = '0a27cf17ae7047b8b12008dd5d2f38d5';

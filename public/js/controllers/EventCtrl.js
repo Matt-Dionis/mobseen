@@ -33,6 +33,7 @@ angular.module('EventCtrl', []).controller('EventController', function($scope, $
     Events.get($scope.id,$scope.limit).success(function(response) {
         $scope.photos = response.photos.reverse();
         $scope.event = response.event;
+        $scope.headline = response.headline;
         $scope.city = response.city;
         $scope.state = response.state;
 

@@ -105,6 +105,18 @@ body {
     background-color: rgba(0, 0, 0,0.2);
 }
 
-a.activeDate {
-    background-color: white;
+.btn-thon {
+  color: #31b0d5;
+  background-color: #FFDE31;
+  border-color: #FFDA27;
+}
+
+.btn-thon:hover,
+.btn-thon:focus,
+.btn-thon:active,
+.btn-thon.active,
+.open > .dropdown-toggle.btn-thon {
+  color: #FFDE31;
+  background-color: #31b0d5;
+  border-color: #269abc;
 }
