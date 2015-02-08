@@ -108,7 +108,7 @@ body {
 .btn-thon {
   color: #31b0d5;
   background-color: #FFDE31;
-  border-color: #FFDA27;
+  border-color: #31b0d5;
 }
 
 .btn-thon:hover,
@@ -118,5 +118,5 @@ body {
 .open > .dropdown-toggle.btn-thon {
   color: #FFDE31;
   background-color: #31b0d5;
-  border-color: #269abc;
+  border-color: #FFDE31;
 }

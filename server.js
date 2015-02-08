@@ -30,6 +30,12 @@ var T = new Twit({
   , access_token_secret:  'Ecb8xubLkzCkOSD6OWm4G8R19J4Vlh6mO7tXXzh68GehA'
 })
 
+var stream = T.stream('statuses/filter', { track: '#thon', language: 'en' })
+
+stream.on('tweet', function (tweet) {
+  console.log(tweet)
+})
+
 /* var baseUrl = 'https://api.instagram.com/v1/media/search?lat=';
 var clientId = '0a27cf17ae7047b8b12008dd5d2f38d5';
 var latitude = '40.8086579';
