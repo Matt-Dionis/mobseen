@@ -30,11 +30,19 @@ var T = new Twit({
   , access_token_secret:  'Ecb8xubLkzCkOSD6OWm4G8R19J4Vlh6mO7tXXzh68GehA'
 })
 
-var stream = T.stream('statuses/filter', { track: '#thon', language: 'en' })
+var stream = T.stream('statuses/filter', { track: ['#thon', '#ftk'], language: 'en', exclude: 'replies' })
 
-stream.on('tweet', function (tweet) {
-  console.log(tweet)
-})
+io.on('connection', function (socket) {
+	stream.on('tweet', function (data) {
+	  socket.emit('newTweets', { 
+	  	time: data.created_at,
+	  	text: data.text,
+	  	username: data.user.screen_name,
+	  	profile_image: data.user.profile_image_url,
+	  	image: data.media
+	  });
+	})
+});
 
 /* var baseUrl = 'https://api.instagram.com/v1/media/search?lat=';
 var clientId = '0a27cf17ae7047b8b12008dd5d2f38d5';

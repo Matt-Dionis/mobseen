@@ -4,7 +4,7 @@ angular.module('EventCtrl', []).controller('EventController', function($scope, $
     $scope.id = $routeParams.id;
     $scope.limit = 20;
 
-    $scope.testId = 123456;
+    /* $scope.testId = 123456;
     $scope.coords = {
         latitude: 33.5275926,
         longitude: -112.2626006
@@ -17,6 +17,8 @@ angular.module('EventCtrl', []).controller('EventController', function($scope, $
         },
         zoom: 17
     };
+
+    $scope.tweets = []; */
 
     $scope.loadImages = function() {
 
@@ -37,7 +39,7 @@ angular.module('EventCtrl', []).controller('EventController', function($scope, $
         $scope.city = response.city;
         $scope.state = response.state;
 
-        $scope.map = {
+        /* $scope.map = {
             center: {
                 latitude: response.latitude,
                 longitude: response.longitude
@@ -51,18 +53,14 @@ angular.module('EventCtrl', []).controller('EventController', function($scope, $
             disableDefaultUI: true
         };
 
-        /* if (new Date(response.start) < new Date() && new Date(response.end) > new Date()) {
+        if (new Date(response.start) < new Date() && new Date(response.end) > new Date()) {
             Instagram.get(response.latitude,response.longitude,response.radius).success(function(response) {
                 $scope.shots = response.data;
             });
         } */
     });
 
-    /* socket.on('newImage', function(data) {
-        if ($scope.id === data.object_id) {
-            $scope.images.unshift(data);
-        } else {
-            console.log('photo update for ' + data.link);
-        }   
+    /* socket.on('newTweets', function(tweetInfo) {
+        $scope.tweets.unshift(tweetInfo);
     }); */
 });
