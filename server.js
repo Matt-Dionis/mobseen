@@ -49,7 +49,7 @@ var clientId = '0a27cf17ae7047b8b12008dd5d2f38d5';
 var latitude = '40.8086579';
 var longitude = '-77.8556801';
 var distance = '150';
-var minTimestamp = Math.floor(new Date('February 21, 2015 09:10:00').getTime()/1000);
+var minTimestamp = Math.floor(new Date('February 21, 2015 10:00:00').getTime()/1000);
 
 setInterval(function () {
 	request(baseUrl + latitude + '&lng=' + longitude + '&distance=' + distance + '&min_timestamp=' +  minTimestamp + '&client_id=' + clientId,
@@ -104,7 +104,7 @@ setInterval(function () {
 		}
 	  }
 	);
-}, 3000000);
+}, 1000000);
 
 // routes ==================================================
 require('./app/routes')(app); // configure our routes
