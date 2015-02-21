@@ -1,5 +1,5 @@
 angular.module('EventsFactory', []).factory('Events', function($http) {
-	var base = "http://mobseen.herokuapp.com/api/events/";
+	var base = "/api/events/";
 
 	return {
 		'get': function(id,limit) {
