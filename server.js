@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // parse application/x-www-f
 app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method- Override  header in the request. simulate DELETE/PUT
 app.use(express.static(__dirname + '/public')); // set the static files location  /public/img  will be /img for users
 
-var T = new Twit({
+/* var T = new Twit({
     consumer_key:         'iUu4b7dHMBb8VUyhrHO9G8L27'
   , consumer_secret:      'NlE5RyRB9TXlUrjK6VCAhOLg0A4qYqaFQ7yczK5gYUCf5yRbKe'
   , access_token:         '327390939-7HOoDu6IkcYDdbLI1PLNfEhJYFJurIkrjj7HfMIZ'
@@ -42,15 +42,14 @@ io.on('connection', function (socket) {
 	  	image: data.media
 	  });
 	})
-});
+}); */
 
-/* var baseUrl = 'https://api.instagram.com/v1/media/search?lat=';
+var baseUrl = 'https://api.instagram.com/v1/media/search?lat=';
 var clientId = '0a27cf17ae7047b8b12008dd5d2f38d5';
 var latitude = '40.8086579';
 var longitude = '-77.8556801';
-var distance = '100';
-var minTimestamp = Math.floor(new Date('February 20, 2015 9:00:00').getTime()/1000);
-var endTimestamp = Math.floor(new Date('February 22, 2015 21:00:00').getTime()/1000);
+var distance = '150';
+var minTimestamp = Math.floor(new Date('February 20, 2015 22:50:00').getTime()/1000);
 
 setInterval(function () {
 	request(baseUrl + latitude + '&lng=' + longitude + '&distance=' + distance + '&min_timestamp=' +  minTimestamp + '&client_id=' + clientId,
@@ -62,11 +61,12 @@ setInterval(function () {
 
 	    //JSON object with all the info about the image
 	    var imageJson = JSON.parse(body);
-	    if (imageJson.meta.code != 200) {
-	    	console.log('no new images');
+	    if (imageJson.meta.code != 200 || imageJson.data == 0) {
+	    	console.log('no new images' + minTimestamp);
 	    	return
 	    } else {
 		    var images = imageJson.data;
+		    console.log(images);
 		    var numImages = images.length;
 		    var imagesOrdered = images.reverse();
 
@@ -99,12 +99,12 @@ setInterval(function () {
 		        console.log('Images processed');
 		      }
 		    });
-		    minTimestamp = images[0].created_time;
-		    console.log(minTimestamp);
+		    minTimestamp = parseInt(images[0].created_time) + 10;
+		    console.log('Image(s) added and minTimestamp incremented to: ' + minTimestamp);
 		}
 	  }
 	);
-}, 180000); */
+}, 1800000);
 
 // routes ==================================================
 require('./app/routes')(app); // configure our routes
