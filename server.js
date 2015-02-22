@@ -49,7 +49,7 @@ var clientId = '0a27cf17ae7047b8b12008dd5d2f38d5';
 var latitude = '40.8086579';
 var longitude = '-77.8556801';
 var distance = '150';
-var minTimestamp = Math.floor(new Date('February 21, 2015 19:35:00').getTime()/1000);
+var minTimestamp = Math.floor((new Date())/1000 - 1800);
 
 setInterval(function () {
 	request(baseUrl + latitude + '&lng=' + longitude + '&distance=' + distance + '&min_timestamp=' +  minTimestamp + '&client_id=' + clientId,
@@ -62,7 +62,8 @@ setInterval(function () {
 	    //JSON object with all the info about the image
 	    var imageJson = JSON.parse(body);
 	    if (imageJson.meta.code != 200 || imageJson.data == 0) {
-	    	console.log('no new images' + minTimestamp);
+	    	console.log('no new images: ' + minTimestamp);
+	    	minTimestamp = Math.floor(new Date()/1000);
 	    	return
 	    } else {
 		    var images = imageJson.data;
@@ -99,41 +100,18 @@ setInterval(function () {
 		        console.log('Images processed');
 		      }
 		    });
-		    minTimestamp = parseInt(images[0].created_time) + 10;
+		    minTimestamp = Math.floor(new Date()/1000);
 		    console.log('Image(s) added and minTimestamp incremented to: ' + minTimestamp);
 		}
 	  }
 	);
-}, 720000);
+}, 1800000);
 
-/* Takes in an array and outputs an array with only unique objects	
-function trimArray(bloatedArray) {
-    var seen = {};
-    var trimmedArray = [];
-    var len = bloatedArray.length;
-    console.log(len);
-    var j = 0;
-    for(var i = 0; i < len; i++) {
-         var imageLink = bloatedArray[i].link;
-         var image = bloatedArray[i];
-         if(seen[imageLink] !== 1) {
-               seen[imageLink] = 1;
-               trimmedArray[j++] = image;
-         }
-    }
-
-    return trimmedArray;
-}
-
-Event.find( { $and: [{latitude: latitude}, {radius: distance}] }, function (err, event) {
-	if (err) {
-            console.log(err);
-    } else {
-    	var array = event[0].photos;
-
-    	event.update({ 'photos': trimArray(array) }).exec();
-    }
-}); */
+/* var user = { uid: userOid, ... };
+Group.update(
+    {name: 'admin', 'users.uid': {$ne: user.uid}}, 
+    {$push: {users: user}},
+    function(err, numAffected) { ... }); */
 
 // routes ==================================================
 require('./app/routes')(app); // configure our routes
