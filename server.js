@@ -49,7 +49,7 @@ var clientId = '0a27cf17ae7047b8b12008dd5d2f38d5';
 var latitude = '40.8086579';
 var longitude = '-77.8556801';
 var distance = '150';
-var minTimestamp = Math.floor(new Date('February 21, 2015 10:00:00').getTime()/1000);
+var minTimestamp = Math.floor(new Date('February 21, 2015 19:35:00').getTime()/1000);
 
 setInterval(function () {
 	request(baseUrl + latitude + '&lng=' + longitude + '&distance=' + distance + '&min_timestamp=' +  minTimestamp + '&client_id=' + clientId,
@@ -104,7 +104,36 @@ setInterval(function () {
 		}
 	  }
 	);
-}, 1000000);
+}, 720000);
+
+/* Takes in an array and outputs an array with only unique objects	
+function trimArray(bloatedArray) {
+    var seen = {};
+    var trimmedArray = [];
+    var len = bloatedArray.length;
+    console.log(len);
+    var j = 0;
+    for(var i = 0; i < len; i++) {
+         var imageLink = bloatedArray[i].link;
+         var image = bloatedArray[i];
+         if(seen[imageLink] !== 1) {
+               seen[imageLink] = 1;
+               trimmedArray[j++] = image;
+         }
+    }
+
+    return trimmedArray;
+}
+
+Event.find( { $and: [{latitude: latitude}, {radius: distance}] }, function (err, event) {
+	if (err) {
+            console.log(err);
+    } else {
+    	var array = event[0].photos;
+
+    	event.update({ 'photos': trimArray(array) }).exec();
+    }
+}); */
 
 // routes ==================================================
 require('./app/routes')(app); // configure our routes

@@ -21,7 +21,16 @@ var eventSchema = new Schema({
         img: String,
         username: String
     },
-    photos: []
+    photos: [{
+        img: String,
+        link: String,
+        username: String,
+        profile: String,
+        text: String,
+        longitude: String,
+        latitude: String,
+        created_time: String
+    }]
 })
 
 module.exports = mongoose.model('Event', eventSchema);
