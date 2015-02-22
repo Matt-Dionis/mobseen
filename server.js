@@ -23,33 +23,12 @@ app.use(bodyParser.urlencoded({ extended: true })); // parse application/x-www-f
 app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method- Override  header in the request. simulate DELETE/PUT
 app.use(express.static(__dirname + '/public')); // set the static files location  /public/img  will be /img for users
 
-/* var T = new Twit({
-    consumer_key:         'iUu4b7dHMBb8VUyhrHO9G8L27'
-  , consumer_secret:      'NlE5RyRB9TXlUrjK6VCAhOLg0A4qYqaFQ7yczK5gYUCf5yRbKe'
-  , access_token:         '327390939-7HOoDu6IkcYDdbLI1PLNfEhJYFJurIkrjj7HfMIZ'
-  , access_token_secret:  'Ecb8xubLkzCkOSD6OWm4G8R19J4Vlh6mO7tXXzh68GehA'
-})
-
-var stream = T.stream('statuses/filter', { track: ['#thon', '#ftk'], language: 'en', exclude: 'replies' })
-
-io.on('connection', function (socket) {
-	stream.on('tweet', function (data) {
-	  socket.emit('newTweets', { 
-	  	time: data.created_at,
-	  	text: data.text,
-	  	username: data.user.screen_name,
-	  	profile_image: data.user.profile_image_url,
-	  	image: data.media
-	  });
-	})
-}); */
-
 var baseUrl = 'https://api.instagram.com/v1/media/search?lat=';
 var clientId = '0a27cf17ae7047b8b12008dd5d2f38d5';
 var latitude = '40.8086579';
 var longitude = '-77.8556801';
 var distance = '150';
-var minTimestamp = Math.floor((new Date())/1000 - 1800);
+var minTimestamp = Math.floor((new Date())/1000 - 180);
 
 setInterval(function () {
 	request(baseUrl + latitude + '&lng=' + longitude + '&distance=' + distance + '&min_timestamp=' +  minTimestamp + '&client_id=' + clientId,
@@ -105,13 +84,7 @@ setInterval(function () {
 		}
 	  }
 	);
-}, 1800000);
-
-/* var user = { uid: userOid, ... };
-Group.update(
-    {name: 'admin', 'users.uid': {$ne: user.uid}}, 
-    {$push: {users: user}},
-    function(err, numAffected) { ... }); */
+}, 180000);
 
 // routes ==================================================
 require('./app/routes')(app); // configure our routes
