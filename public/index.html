@@ -36,7 +36,7 @@
 	<script src="js/appRoutes.js"></script>
 	<script src="js/app.js"></script>
 </head>
-<body ng-app="app" ng-init="dateState = 'live'">
+<body ng-app="app" ng-init="dateState = 'past'">
 
   <!-- HEADER -->
   <div class="navbar-wrapper">
@@ -55,7 +55,7 @@
             <ul class="nav nav-pills pull-right">
               <li><a ng-href="/" ng-click="dateState = 'live'" ng-class="{'activeDate': dateState=='live'}">Live!</a></li>
               <li><a ng-href="/" ng-click="dateState = 'past'" ng-class="{'activeDate': dateState=='past'}">Past Events</a></li>
-              <!-- <li><a ng-href="/" ng-click="dateState = 'future'" ng-class="{'activeDate': dateState=='future'}">Future Events</a></li> -->
+              <li><a ng-href="/" ng-click="dateState = 'future'" ng-class="{'activeDate': dateState=='future'}">Future Events</a></li>
             </ul>
           </div>
           <!-- <div class="navbar-collapse collapse">
