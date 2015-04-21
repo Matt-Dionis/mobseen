@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // parse application/x-www-f
 app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method- Override  header in the request. simulate DELETE/PUT
 app.use(express.static(__dirname + '/public')); // set the static files location  /public/img  will be /img for users
 
-var baseUrl = 'https://api.instagram.com/v1/media/search?lat=';
+/* var baseUrl = 'https://api.instagram.com/v1/media/search?lat=';
 var clientId = '0a27cf17ae7047b8b12008dd5d2f38d5';
 var latitude = '40.81218';
 var longitude = '-77.856102';
@@ -84,7 +84,7 @@ setInterval(function () {
 		}
 	  }
 	);
-}, 1800000);
+}, 1800000); */
 
 // routes ==================================================
 require('./app/routes')(app); // configure our routes
