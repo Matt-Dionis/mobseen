@@ -84,7 +84,7 @@ setInterval(function () {
 		}
 	  }
 	);
-}, 600000); */
+}, 600000);
 
 // routes ==================================================
 require('./app/routes')(app); // configure our routes
