@@ -27,7 +27,7 @@ var baseUrl = 'https://api.instagram.com/v1/media/search?lat=';
 var clientId = '0a27cf17ae7047b8b12008dd5d2f38d5';
 var latitude = '36.1024175';
 var longitude = '-115.1688513';
-var distance = '2000';
+var distance = '700';
 var minTimestamp = Math.floor(new Date()/1000);
 
 setInterval(function () {
