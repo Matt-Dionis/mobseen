@@ -1,7 +1,7 @@
 // load the event model
 var Event = require('./models/event');
 
-// expose the routes to our app with module.exports
+// expose the routes to app with module.exports
 module.exports = function(app) {
 
 	// api ---------------------------------------------------------------------
