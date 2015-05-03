@@ -4,13 +4,13 @@ angular
 	$routeProvider
 
 	.when('/', {
-		templateUrl: '/app/main/main.html',
+		templateUrl: 'app/main/main.html',
 		controller: 'MainController',
 		controllerAs: 'main'
 	})
 
 	.when('/:id', {
-		templateUrl: '/app/event/event.html',
+		templateUrl: 'app/event/event.html',
 		controller: 'EventController',
 		controllerAs: 'event'
 	});
