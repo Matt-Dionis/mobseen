@@ -1,1 +1,1 @@
-angular.module('app', ['ngRoute', 'appRoutes', 'MainCtrl', 'EventCtrl', 'InstaFactory', 'EventsFactory', 'SocketFactory', 'uiGmapgoogle-maps', 'infinite-scroll']);
+angular.module('app', ['ngRoute', 'appRoutes', 'MainCtrl', 'EventCtrl', 'EventsFactory', 'SocketFactory', 'infinite-scroll']);

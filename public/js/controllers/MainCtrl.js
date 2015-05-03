@@ -1,4 +1,4 @@
-angular.module('MainCtrl', []).controller('MainController', function($scope, $routeParams, Events) {
+angular.module('MainCtrl', []).controller('MainController', function($scope, Events) {
 
     // pull empty event details from API based on routeParams to get all events
     $scope.id = '';
