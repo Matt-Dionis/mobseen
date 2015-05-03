@@ -25,10 +25,10 @@ function EventController($routeParams, eventService) {
         .success(function(response) {
             vm.photos = response.photos.reverse();
         })
-        .finally(fucntion() {
+        .finally(function() {
             vm.busy = false;
         });
-    }
+    };
 
     eventService.get(vm.id,vm.limit).success(function(response) {
         vm.photos = response.photos.reverse();
