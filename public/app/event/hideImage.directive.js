@@ -11,7 +11,7 @@ function hideImage() {
 
 	function link(scope, element, attrs) {
 		element.bind('error', function() {
-			angular.element(this).parent().parent().attr('style', attrs.hideImage);
+			element.parent().parent().css({'display': 'none'});
 		})
 	}
 }
