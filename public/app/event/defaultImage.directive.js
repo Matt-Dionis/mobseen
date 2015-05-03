@@ -11,7 +11,7 @@ function defaultImage() {
 
 	function link(scope, element, attrs) {
 		element.bind('error', function() {
-			angular.element(this).attr('src', attrs.defaultImage);
+			element.attr('src', attrs.defaultImage);
 		})
 	}
 }
