@@ -1,4 +1,4 @@
-angular.module('EventCtrl', []).controller('EventController', function($scope, Events) {
+angular.module('EventCtrl', []).controller('EventController', function($scope, $routeParams, Events) {
 
     // pull stadium details from API based on routeParams
     $scope.id = $routeParams.id;
