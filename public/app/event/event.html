@@ -8,6 +8,6 @@
   
 	<div class="col-md-3 col-sm-4 col-xs-12 img-container" ng-repeat="photo in event.photos">
 		<a ng-href="{{photo.link}}" target="_blank" title="{{photo.text}}"><img ng-src="{{photo.img}}" onerror="imgError(this);" alt="" class="img-responsive insta" id="image"></a>
-		<div class="prof-circ" title="{{photo.username}}"><a ng-href="http://instagram.com/{{photo.username}}" target="_blank"><img ng-src="{{photo.profile}}" onerror="anonImg(this);" alt="" class="circular"></a></div>
+		<div class="prof-circ" title="{{photo.username}}"><a ng-href="http://instagram.com/{{photo.username}}" target="_blank"><img ng-src="{{photo.profile}}" default-image="https://instagramimages-a.akamaihd.net/profiles/anonymousUser.jpg" alt="" class="circular"></a></div>
 	</div>
 </div>
