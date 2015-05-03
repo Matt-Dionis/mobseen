@@ -14,12 +14,18 @@ function EventController($routeParams, eventService) {
 
     vm.loadImages = function() {
 
-        if (vm.busy) return;
+        if (vm.busy) {
+            return;
+        }
+
         vm.busy = true;
         vm.limit += 20;
 
-        eventService.get(vm.id,vm.limit).success(function(response) {
+        eventService.get(vm.id,vm.limit)
+        .success(function(response) {
             vm.photos = response.photos.reverse();
+        })
+        .finally(fucntion() {
             vm.busy = false;
         });
     }
