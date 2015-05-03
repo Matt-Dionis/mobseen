@@ -1,29 +1,13 @@
-<!-- <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable=true options="options">
-  <ui-gmap-marker idKey="testId" coords="coords"></ui-gmap-marker>
-</ui-gmap-google-map> -->
-
 <div class="row inner" infinite-scroll="loadImages()" infinite-scroll-distance="1" infinite-scroll-disabled="busy">
-
 	<h2 class="headline">{{event}}</h2>
-  <h3 class="headline" ng-show="headline">{{headline}}</h3>
+  	<h3 class="headline" ng-show="headline">{{headline}}</h3>
 	<h3 class="headline">{{city}}, {{state}}</h3>
-  <div class="headline" ng-show="event == 'THON 2015'">
-    <a href="http://donate.thon.org/" target="_blank" class="btn btn-thon"><span class="glyphicon glyphicon-heart-empty"></span> Donate!</a>
-  </div>
+  	<div class="headline" ng-show="event == 'THON 2015'">
+    	<a href="http://donate.thon.org/" target="_blank" class="btn btn-thon"><span class="glyphicon glyphicon-heart-empty"></span> Donate!</a>
+  	</div>
   
 	<div class="col-md-3 col-sm-4 col-xs-12 img-container" ng-repeat="photo in photos">
-
 		<a ng-href="{{photo.link}}" target="_blank" title="{{photo.text}}"><img ng-src="{{photo.img}}" onerror="imgError(this);" alt="" class="img-responsive insta" id="image"></a>
-
 		<div class="prof-circ" title="{{photo.username}}"><a ng-href="http://instagram.com/{{photo.username}}" target="_blank"><img ng-src="{{photo.profile}}" onerror="anonImg(this);" alt="" class="circular"></a></div>
-
 	</div>
-
 </div>
-
-<!-- <div ng-repeat="tweet in tweets">
-	<img src="{{tweet.profile_image}}" alt="">
-	<h3>{{tweet.username}}</h3>
-	<h5>{{tweet.text}}</h5>
-	<p>{{tweet.time}}</p>
-</div> -->

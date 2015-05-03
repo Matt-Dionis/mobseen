@@ -1,1 +1,0 @@
-angular.module('app', ['ngRoute', 'appRoutes', 'MainCtrl', 'EventCtrl', 'EventsFactory', 'SocketFactory', 'infinite-scroll']);
