@@ -1,5 +1,5 @@
 <div class="row inner">
-    <div class="col-xs-12 col-sm-4 col-md-4 project" ng-repeat="event in events | orderBy:'end'" ng-show="dateState==event.dateState">
+    <div class="col-xs-12 col-sm-4 col-md-4 project" ng-repeat="event in main.events | orderBy:'end'" ng-show="dateState==event.dateState">
         <a ng-href="/{{event.object_id}}">
             <div class="img-overlay">
                 <img ng-src="{{event.cover.img}}" alt="" class="img-responsive insta" id="image"/>
