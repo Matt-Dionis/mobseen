@@ -18,7 +18,7 @@ function EventController($routeParams, eventService) {
         vm.busy = true;
         vm.limit += 20;
 
-        Events.get(vm.id,vm.limit).success(function(response) {
+        eventService.get(vm.id,vm.limit).success(function(response) {
             vm.photos = response.photos.reverse();
             vm.busy = false;
         });
