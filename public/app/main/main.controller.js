@@ -8,10 +8,7 @@ function MainController(eventService) {
 
     var vm = this;
 
-    // pull empty event details from API based on routeParams to get all events
-    vm.id = '';
-
-    eventService.get(vm.id).success(function(response) {
+    eventService.getAllEvents().success(function(response) {
         console.log(response);
         vm.events = response;
 

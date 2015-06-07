@@ -22,35 +22,15 @@ module.exports = function(app) {
 	// get event by _id
 	app.get('/api/events/:event_id', function(req, res) {
 
-		var limitInt = parseInt(req.query.limit);
-		var imageLimit = -limitInt;
-
-		if (imageLimit <= 0) {
-
-			console.log(imageLimit);
-
-			// use mongoose to get event
-			Event.findOne({object_id: req.params.event_id}, { photos: {$slice: imageLimit } }, function(err, event) {
-
-				// if there is an error retrieving, send the error. nothing after res.send(err) will execute
-				if (err)
-					res.send(err)
-
+		// use mongoose to get event
+		Event.findOne({object_id: req.params.event_id}, function(err, event) {
+			// if there is an error retrieving, send the error
+			if (err) {
+				res.send(err);
+			} else {
 				res.jsonp(event); // return event in JSON format
-			});
-		} else {
-
-			console.log(imageLimit);
-			// use mongoose to get event
-			Event.findOne({object_id: req.params.event_id}, function(err, event) {
-
-				// if there is an error retrieving, send the error. nothing after res.send(err) will execute
-				if (err)
-					res.send(err)
-
-				res.jsonp(event); // return event in JSON format
-			});
-		}
+			}
+		});
 	});
 
 	// add photos to event photos array

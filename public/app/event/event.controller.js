@@ -10,27 +10,8 @@ function EventController($routeParams, eventService) {
 
     // pull stadium details from API based on routeParams
     vm.id = $routeParams.id;
-    vm.limit = 20;
 
-    vm.loadImages = function() {
-
-        if (vm.busy) {
-            return;
-        }
-
-        vm.busy = true;
-        vm.limit += 20;
-
-        eventService.get(vm.id,vm.limit)
-        .success(function(response) {
-            vm.photos = response.photos.reverse();
-        })
-        .finally(function() {
-            vm.busy = false;
-        });
-    };
-
-    eventService.get(vm.id,vm.limit).success(function(response) {
+    eventService.getEvent(vm.id).success(function(response) {
         vm.photos = response.photos.reverse();
         vm.event = response.event;
         vm.headline = response.headline;

@@ -1,19 +1,32 @@
 angular
 	.module('app')
 	.factory('eventService', function($http) {
-		var base = "/api/events/";
-
+		
 		return {
-			'get': function(id,limit) {
-				var request = id;
-				var limit = limit;
-				var url = base + request + '?limit=' + limit;
-				var config = {
-					'params': {
-						'callback': 'JSON_CALLBACK'
-					}
-				};
-				return $http.jsonp(url, config);
-			}
-		};
+			getAllEvents: getAllEvents,
+			getEvent: getEvent
+		}
+		
+		var base = "/api/events/";
+		
+		function getAllEvents() {
+			var url = base;
+			var config = {
+				'params': {
+					'callback': 'JSON_CALLBACK'
+				}
+			};
+			return $http.jsonp(url, config);
+		}
+
+		function getEvent(id) {
+			var request = id;
+			var url = base + request;
+			var config = {
+				'params': {
+					'callback': 'JSON_CALLBACK'
+				}
+			};
+			return $http.jsonp(url, config);
+		}
 	});

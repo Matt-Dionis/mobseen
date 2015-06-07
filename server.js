@@ -23,7 +23,7 @@ app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-M
 app.use(express.static(__dirname + '/public')); // set the static files location  /public/img  will be /img for users
 
 // Set Instagram API call parameters
-var baseUrl = 'https://api.instagram.com/v1/media/search?lat=';
+/* var baseUrl = 'https://api.instagram.com/v1/media/search?lat=';
 var clientId = '0a27cf17ae7047b8b12008dd5d2f38d5';
 var latitude = '36.1024175';
 var longitude = '-115.1688513';
@@ -85,7 +85,7 @@ setInterval(function () {
 		}
 	  }
 	);
-}, 600000);
+}, 600000); */
 
 // routes ==================================================
 require('./app/routes')(app); // configure routes
