@@ -11,7 +11,6 @@
 
 	<!-- bootstrap, font-awesome, and custom styling -->
 	<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body ng-app="app" ng-init="dateState = 'past'">
@@ -48,14 +47,12 @@
 	<div ng-view></div>
 
   <!-- JS -->
-  <script src="libs/jquery/dist/jquery.min.js"></script>
   <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="libs/angular/angular.min.js"></script>
   <script src="libs/angular-route/angular-route.min.js"></script>
   <script src="libs/angular-resource/angular-resource.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>
   <script src='libs/lodash/dist/lodash.underscore.min.js'></script>
-  <script src='libs/infinite-scroll/ng-infinite-scroll.min.js'></script>
 
   <!-- ANGULAR CUSTOM -->
   <script src="app/app.module.js"></script>
@@ -66,15 +63,6 @@
   <script src="app/event/event.controller.js"></script>
   <script src="app/event/defaultImage.directive.js"></script>
   <script src="app/event/hideImage.directive.js"></script>
-
-  <script>
-    /* function imgError(image){
-      image.parentNode.parentNode.style.display = 'none';
-    }
-
-    function anonImg(image){
-      image.src = 'https://instagramimages-a.akamaihd.net/profiles/anonymousUser.jpg';
-    } */
-  </script>
+    
 </body>
 </html>

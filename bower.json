@@ -3,11 +3,9 @@
   "version": "1.0.0",
   "dependencies": {
     "bootstrap": "latest",
-    "font-awesome": "latest",
     "animate.css": "latest",
     "angular": "latest",
     "angular-route": "latest",
-    "angular-resource": "latest",
-    "fontawesome": "~4.2.0"
+    "angular-resource": "latest"
   }
 }
