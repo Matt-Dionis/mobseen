@@ -1,13 +1,12 @@
 angular
 	.module('app')
 	.factory('eventService', function($http) {
+		var base = "/api/events/";
 		
 		return {
 			getAllEvents: getAllEvents,
 			getEvent: getEvent
-		}
-		
-		var base = "/api/events/";
+		};
 		
 		function getAllEvents() {
 			var url = base;

@@ -1,2 +1,2 @@
 angular
-	.module('app', ['ngRoute', 'infinite-scroll']);
+	.module('app', ['ngRoute']);
