@@ -1,6 +1,9 @@
+'use strict';
+
 angular.module('app')
   .factory('socketService', function ($rootScope) {
     var socket = io.connect();
+    
     return {
       on: function (eventName, callback) {
         socket.on(eventName, function () {  
@@ -18,7 +21,7 @@ angular.module('app')
               callback.apply(socket, args);
             }
           });
-        })
+        });
       }
     };
   });

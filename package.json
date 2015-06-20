@@ -1,5 +1,6 @@
 {
   "name": "mobseen",
+  "version": "0.0.1",
   "description": "Live Instagram photo stream at large events",
   "main": "server.js",
   "scripts": {
